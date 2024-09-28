@@ -12,19 +12,16 @@ export class CovidController {
 
 	@Get()
 	async getBrazilCovidData() {
-		console.log("getBrazilCovidData");
 		return this.covidService.getBrazilCovidData().pipe(catchError(errorResponseHelper));
 	}
 
 	@Get("/uf/:uf")
 	async getDataPerState(@Param("uf") uf: string) {
-		console.log("getDataPerState", uf);
 		return this.covidService.getDataPerState(uf).pipe(catchError(errorResponseHelper));
 	}
 
 	@Get("/countries")
 	async getDataPerCountry() {
-		console.log("getDataPerCountry");
 		return this.covidService.getDataPerCountry().pipe(catchError(errorResponseHelper));
 	}
 }

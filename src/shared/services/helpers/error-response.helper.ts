@@ -7,9 +7,11 @@ export const errorResponseHelper = (error: AxiosError) => {
 
     const resultError: ResultViewModel<null> = {
         data: null,
-        status: error?.status,
-        error: !errorData ? error : errorData,
-        message: error?.message
+        error: {
+            status: error?.status,
+            message: error?.message,
+            dataError: !errorData ? error : errorData,
+        }
     }
 
     throw new HttpException(resultError, error?.response?.status || 500);

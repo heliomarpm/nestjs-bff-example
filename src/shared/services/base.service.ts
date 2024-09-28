@@ -6,8 +6,6 @@ export abstract class BaseService {
 	}
 
 	protected getUrl(endpoint?: string): string {
-		console.log("this.baseUrl", this.baseUrl);
-		console.log("endpoint", endpoint);
 		return endpoint ? `${this.baseUrl}/${endpoint}` : this.baseUrl;
 	}
 }
