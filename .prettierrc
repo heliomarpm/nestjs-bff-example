@@ -1,0 +1,23 @@
+{
+  "singleQuote": false,
+  "trailingComma": "all",
+  "useTabs": true,
+  "tabWidth": 2,
+  "semi": true,
+   "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "importOrder": ["^[./]"],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": true,
+  "importOrderCaseInsensitive": true,
+  "printWidth": 180,
+  "overrides": [	
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
+}
