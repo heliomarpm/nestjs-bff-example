@@ -13,14 +13,20 @@ export class CovidService extends BaseService {
 	}
 
 	getBrazilCovidData(): Observable<ResultViewModel<IndividualDataUfDto[]>> {
-		return this.httpService.get(this.getUrl()).pipe(map(({ data }) => CovidAdapter.covidList(data.data)));
+		return this.httpService
+			.get(this.getUrl())
+			.pipe(map(({ data }) => CovidAdapter.covidList(data.data)));
 	}
 
 	getDataPerCountry(): Observable<ResultViewModel<DataPerCountryDto[]>> {
-		return this.httpService.get(this.getUrl("countries")).pipe(map(({ data }) => CovidAdapter.getDataPerCountry(data.data)));
+		return this.httpService
+			.get(this.getUrl("countries"))
+			.pipe(map(({ data }) => CovidAdapter.getDataPerCountry(data.data)));
 	}
 
 	getDataPerState(uf: string): Observable<ResultViewModel<IndividualDataUfDto>> {
-		return this.httpService.get(this.getUrl(`brazil/uf/${uf}`)).pipe(map(({ data }) => CovidAdapter.covidIndividual(data)));
+		return this.httpService
+			.get(this.getUrl(`brazil/uf/${uf}`))
+			.pipe(map(({ data }) => CovidAdapter.covidIndividual(data)));
 	}
 }

@@ -1,6 +1,7 @@
 import { ResultViewModel } from "src/shared/models/interfaces/result-view.model";
-import { CovidDataUfViewModel, IndividualDataUfDto } from "./models/covid-uf.model";
+
 import { CovidDataCountryViewModel, DataPerCountryDto } from "./models";
+import { CovidDataUfViewModel, IndividualDataUfDto } from "./models/covid-uf.model";
 
 export class CovidAdapter {
 	static covidList(items: CovidDataUfViewModel[]): ResultViewModel<IndividualDataUfDto[]> {
@@ -29,7 +30,9 @@ export class CovidAdapter {
 		};
 	}
 
-	static getDataPerCountry(data: CovidDataCountryViewModel[]): ResultViewModel<DataPerCountryDto[]> {
+	static getDataPerCountry(
+		data: CovidDataCountryViewModel[],
+	): ResultViewModel<DataPerCountryDto[]> {
 		return {
 			data: data.map(item => ({
 				country: item.country,
@@ -41,4 +44,3 @@ export class CovidAdapter {
 		};
 	}
 }
-
